@@ -9,7 +9,7 @@
             </h4>
             <p class="card-text">
                 <div class="form-group">
-                    <label for="hit_points">Hit points</label>
+                    <label for="hit_points">Hit points (max {{$player->max_hit_points}})</label>
                     <input type="number" class="form-control" name="hit_points" id="hit_points" value="{{old('hit_points', $player->hit_points)}}">
                 </div>
 
@@ -56,8 +56,24 @@
 
 @section('end')
     <script>
+        var max = {{$player->max_hit_points}};
+
+        $('#hit_points').change(function () {
+            var hp = parseInt($('#hit_points').val());
+            if (max && hp > max) {
+                hp = max;
+            }
+            if (hp < 0) {
+                hp = 0;
+            }
+            $('#hit_points').val(hp);
+        });
+
         function add(amount) {
             var hp = parseInt($('#hit_points').val()) + amount;
+            if (max && hp > max) {
+                hp = max;
+            }
             $('#hit_points').val(hp);
         }
 

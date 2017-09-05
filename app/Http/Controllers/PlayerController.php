@@ -26,7 +26,7 @@ class PlayerController extends Controller
             'real_name' => 'required'
         ]);
 
-        $player = Player::create($request->only('name', 'real_name', 'hit_points'));
+        $player = Player::create($request->only('name', 'real_name', 'hit_points', 'max_hit_points', 'defence'));
 
         event(new PlayerUpdated($player));
 
@@ -50,7 +50,7 @@ class PlayerController extends Controller
             'real_name' => 'required'
         ]);
 
-        $player->update($request->only('name', 'real_name', 'hit_points'));
+        $player->update($request->only('name', 'real_name', 'hit_points', 'max_hit_points', 'defence'));
 
         event(new PlayerUpdated($player));
 
