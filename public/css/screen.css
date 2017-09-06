@@ -9,3 +9,11 @@ body {
 .progress {
     border: 1px solid rgba(0,0,0,0.5);
 }
+
+.local-ip {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.9);
+    padding:10px;
+}

@@ -24,6 +24,8 @@
                     </div>
                 </div>
             </div>
+
+            <div class="local-ip">Changestuff @ {{config('app.local_ip')}}</div>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
@@ -35,7 +37,7 @@
         <script>
             Pusher.logToConsole = true;
 
-            var pusher = new Pusher('76c2192608c2cb2d6f21', {
+            var pusher = new Pusher('{{config('broadcasting.connections.pusher.key')}}', {
                 cluster: 'eu',
                 encrypted: true
             });
