@@ -10,13 +10,10 @@ class Player extends Model
 
     public function getBgColor()
     {
-        if ($this->hit_points < 1) {
-            return 'bg-dark';
-        }
-        if ($this->hit_points < 11) {
+        if (($this->hit_points/$this->max_hit_points) < 0.26) {
             return 'bg-danger';
         }
-        if ($this->hit_points < 21) {
+        if (($this->hit_points/$this->max_hit_points) < 0.51) {
             return 'bg-warning';
         }
         return 'bg-success';
