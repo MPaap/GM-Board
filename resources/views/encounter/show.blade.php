@@ -7,7 +7,13 @@
                 {{$encounter->name}}
             </h4>
             <p class="card-text">
-                <button type="button" class="btn btn-block btn-primary" onclick="nextCharacter();">Next</button>
+                <button type="button" class="btn btn-block btn-primary" onclick="nextCharacter();">Next character</button>
+
+                <hr>
+
+                @foreach($encounter->characters as $character)
+                    <h5>{{$character->name}}</h5>
+                @endforeach
             </p>
         </div>
     </div>
